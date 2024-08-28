@@ -1,0 +1,222 @@
+1) Removing special characters from lines in a file:
+
+```python
+import re
+
+def remove_special_characters(filename):
+    with open(filename, 'r+') as file:
+        lines = file.readlines()
+        file.seek(0)
+        for line in lines:
+            file.write(re.sub(r'[^\w\s]', '', line))
+        file.truncate()
+
+# Example usage:
+filename = 'example.txt'  # Replace 'example.txt' with your file name
+remove_special_characters(filename)
+print("Special characters removed successfully.")
+```
+
+
+
+
+
+
+2) Creating a file, counting the lines, and printing the sum of characters:
+
+```python
+def create_file_and_count_lines(filename):
+    lines = [
+        "This is line 1.",
+        "This is line 2!",
+        "And this is line 3?!"
+    ]
+
+    with open(filename, 'w') as file:
+        file.writelines(lines)
+
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        line_count = len(lines)
+        character_count = sum(len(line) for line in lines)
+
+    print(f"Total lines: {line_count}")
+    print(f"Total characters: {character_count}")
+
+# Example usage:
+filename = 'example.txt'  # Replace 'example.txt' with your desired file name
+create_file_and_count_lines(filename)
+```
+
+
+
+
+
+Here are the simple Python codes for each of your tasks:
+
+1) Copy content of one file to another:
+
+```python
+def copy_file(source_file, destination_file):
+    with open(source_file, 'r') as source:
+        with open(destination_file, 'w') as destination:
+            destination.write(source.read())
+
+# Example usage:
+source_file = 'source.txt'
+destination_file = 'destination.txt'
+copy_file(source_file, destination_file)
+print("Content copied successfully.")
+```
+
+2) Print odd lines of a file:
+
+```python
+def print_odd_lines(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        for i, line in enumerate(lines):
+            if i % 2 == 0:
+                print(line.strip())
+
+# Example usage:
+filename = 'example.txt'
+print_odd_lines(filename)
+```
+
+3) Remove duplicate elements from two files:
+
+```python
+def remove_duplicates(file1, file2):
+    with open(file1, 'r') as f1:
+        data1 = set(f1.readlines())
+    with open(file2, 'r') as f2:
+        data2 = set(f2.readlines())
+    
+    unique_data = data1.union(data2)
+    
+    with open('unique_data.txt', 'w') as output_file:
+        output_file.writelines(unique_data)
+
+# Example usage:
+file1 = 'file1.txt'
+file2 = 'file2.txt'
+remove_duplicates(file1, file2)
+print("Duplicate elements removed successfully.")
+```
+
+
+
+
+
+
+code to print characters of a string at even positions:
+```python
+def print_even_characters(input_string):
+    even_characters = input_string[1::2]
+    print("Characters at even positions:", even_characters)
+
+# Example usage:
+input_string = "Hello, World!"
+print_even_characters(input_string)
+```
+
+Here are the Python programs for each of your tasks:
+
+1) Remove duplicates from a sentence:
+
+```python
+def remove_duplicates_from_sentence(sentence):
+    unique_chars = []
+    for char in sentence:
+        if char not in unique_chars and char != ' ':
+            unique_chars.append(char)
+    return ''.join(unique_chars)
+
+# Example usage:
+sentence = "remove duplicates from sentence"
+result = remove_duplicates_from_sentence(sentence)
+print("Sentence with duplicates removed:", result)
+```
+
+2) Convert a list into a dictionary:
+
+```python
+def list_to_dictionary(input_list):
+    return {index: value for index, value in enumerate(input_list)}
+
+# Example usage:
+input_list = ["apple", "banana", "cherry"]
+result_dict = list_to_dictionary(input_list)
+print("Dictionary:", result_dict)
+```
+
+3) Return common characters from two strings:
+
+```python
+def common_characters(string1, string2):
+    set1 = set(string1)
+    set2 = set(string2)
+    return set1.intersection(set2)
+
+# Example usage:
+string1 = "hello"
+string2 = "world"
+result = common_characters(string1, string2)
+print("Common characters:", result)
+```
+
+4) Python program to accept strings which contain all vowels:
+
+```python
+def contains_all_vowels(input_string):
+    vowels = set("aeiou")
+    return vowels.issubset(input_string.lower())
+
+# Example usage:
+input_string = "This is a sample string with all vowels"
+if contains_all_vowels(input_string):
+    print("String contains all vowels.")
+else:
+    print("String does not contain all vowels.")
+```
+
+5) Write a program to remove duplicates from a string:
+
+```python
+def remove_duplicates_from_string(input_string):
+    return ''.join(sorted(set(input_string), key=input_string.index))
+
+# Example usage:
+input_string = "hello"
+result = remove_duplicates_from_string(input_string)
+print("String with duplicates removed:", result)
+```
+
+6) Write a program to check if the first and last letter of a string are the same or not:
+
+```python
+def check_first_last_letter(string):
+    return string[0] == string[-1]
+
+# Example usage:
+string = "radar"
+if check_first_last_letter(string):
+    print("First and last letters are the same.")
+else:
+    print("First and last letters are not the same.")
+```
+
+7) Find the length of a string:
+
+```python
+def string_length(input_string):
+    return len(input_string)
+
+# Example usage:
+input_string = "Hello, World!"
+length = string_length(input_string)
+print("Length of string:", length)
+```
+
+These programs should accomplish the tasks you outlined. Let me know if you need further assistance!
